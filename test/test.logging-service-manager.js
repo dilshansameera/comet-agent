@@ -11,10 +11,10 @@ suite('logging service manager', function() {
     var logcontent = Math.random();
 
     var logginservice1 = createLoggingServiceMock(loggingmanager);
-    logginservice1.on('line', function(data) {
-      assert.equal(data, logcontent);
+    logginservice1.log = function(type, message) {
+      assert.equal(logcontent, message);
       done();
-    });
+    }
     logtailmock1.writeLog(logcontent);
   });
 
@@ -24,23 +24,21 @@ suite('logging service manager', function() {
     var logcontent = Math.random();
     var count = 0;
     var logginservice1 = createLoggingServiceMock(loggingmanager);
-    logginservice1.on('line', function(data) {
-      assert.equal(data, logcontent);
-
+    logginservice1.log = function(type, message) {
+      assert.equal(logcontent, message);
       count++;
       if (count == 2) {
         done();
       }
-    });
-
+    }
     var logginservice2 = createLoggingServiceMock(loggingmanager);
-    logginservice2.on('line', function(data) {
-      assert.equal(data, logcontent);
+    logginservice2.log = function(type, message) {
+      assert.equal(logcontent, message);
       count++;
       if (count == 2) {
         done();
       }
-    });
+    }
     logtailmock1.writeLog(logcontent);
   });
 
@@ -53,16 +51,13 @@ suite('logging service manager', function() {
     var count = 0;
 
     var logginservice1 = createLoggingServiceMock(loggingmanager);
-
-    logginservice1.on('line', function(data) {
-      assert.equal(data, logcontent);
-
+    logginservice1.log = function(type, message) {
+      assert.equal(logcontent, message);
       count++;
       if (count == 2) {
         done();
       }
-    });
-
+    }
     logtailmock1.writeLog(logcontent);
     logtailmock2.writeLog(logcontent);
 
@@ -77,24 +72,24 @@ suite('logging service manager', function() {
 
     var logginservice1 = createLoggingServiceMock(loggingmanager);
 
-    logginservice1.on('line', function(data) {
-      assert.equal(data, logcontent);
+    logginservice1.log = function(type, message) {
+      assert.equal(logcontent, message);
 
       count++;
-      if (count == 2) {
+      if (count == 4) {
         done();
       }
-    });
+    }
 
     var logginservice2 = createLoggingServiceMock(loggingmanager);
-    logginservice2.on('line', function(data) {
-      assert.equal(data, logcontent);
+    logginservice2.log = function(type, message) {
+      assert.equal(logcontent, message);
 
       count++;
-      if (count == 2) {
+      if (count == 4) {
         done();
       }
-    });
+    }
 
     logtailmock1.writeLog(logcontent);
     logtailmock2.writeLog(logcontent);
@@ -126,5 +121,4 @@ LogTailerMock.prototype.writeLog = function(line) {
 function LoggingServiceMock() {
 
 }
-
 util.inherits(LoggingServiceMock, EventEmitter);

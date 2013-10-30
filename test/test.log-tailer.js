@@ -28,7 +28,6 @@ suite('log tail', function() {
     });
     fs.unlinkSync(filepath);
     fs.writeFileSync(filepath, content + "\n");
-
   });
 
   // test('tail for not existing file', function(done) {
