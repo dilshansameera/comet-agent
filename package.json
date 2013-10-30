@@ -2,10 +2,10 @@
   "name": "log-tailer",
   "version": "0.1.0",
   "scripts": {
-    "test": "node_modules/.bin/mocha -u tdd -R spec -t 10000"
+    "test": "node_modules/.bin/mocha -u tdd -R spec -t 15000"
   },
   "dependencies": {
-    "tail": "0.3.x"
+    "always-tail": "0.1.x"
   },
   "devDependencies": {
     "mocha": "0.3.x"
