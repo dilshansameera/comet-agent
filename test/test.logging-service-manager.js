@@ -95,7 +95,7 @@ suite('logging service manager', function() {
         assert.equal(logcontent2, message);
       }
       count++;
-      if (count == 2) {
+      if (count == 4) {
         done();
       }
     }
@@ -110,7 +110,7 @@ suite('logging service manager', function() {
         assert.equal(logcontent2, message);
       }
       count++;
-      if (count == 2) {
+      if (count == 4) {
         done();
       }
     }

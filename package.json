@@ -5,7 +5,8 @@
     "test": "node_modules/.bin/mocha -u tdd -R spec -t 15000"
   },
   "dependencies": {
-    "tail": "0.3.x"
+    "tail": "0.3.x",
+    "mkdirp":"0.3.x"
   },
   "devDependencies": {
     "mocha": "0.3.x"

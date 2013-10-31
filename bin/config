@@ -1,0 +1,19 @@
+{
+  "logger":{
+    "logFiles": {
+      "haproxy": "/tmp/log/haproxy.log",
+      "app": "/tmp/log/app.log"
+    },
+  "services": {
+    "papertrail": {
+      "apiKey": "dsds88sds",
+      "endpoint": "https:/sdsd.com/sd"
+    },
+    "comet": {
+      "token": "678sdbsds9dsds"
+    }
+  },
+  "watchFileInterval": 1000
+},
+"matrics":{}
+}
