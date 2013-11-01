@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var configPath = process.argv[2],
+  fs = require('fs');
+
+if (!configPath)
+  throw new Error('config file path argument found');
+
+if (!fs.existsSync(configPath))
+  throw new Error('cannot find config file');
+
+var configstring = fs.readFileSync(configPath, 'utf-8');
+var config = JSON.parse(configstring);
+
+if (!config) {
+  throw new Error('unable to parse config file');
+}
+
+var metricsServiceManager = require('../lib/metrics-service-manager');
+
+var metricsManager = new metricsServiceManager();
+
+var providersList = config.providers;
+
+for (var providername in providersList) {
+  var Provider = require('../lib/metricproviders/' + providername);
+  var providerConfig = providersList[providername];
+  var provider = new Provider(providerConfig);
+  metricsManager.registerProvider(provider);
+}
+
+
+var servicesList = config.services;
+
+for (var servicename in servicesList){
+  var Service = require('../lib/metricsservices/'+servicename)
+  var serviceConfig = servicesList[servicename];
+  var service = new Service(serviceConfig);
+  metricsManager.registerService(service);
+}

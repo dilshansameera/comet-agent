@@ -3,6 +3,19 @@ var assert = require('assert'),
   EventEmitter = require('events').EventEmitter,
   util = require('util');
 
+var createLogtailMock = function(loggingmanager, type) {
+  var logtailmock = new LogTailerMock();
+  logtailmock.type = type;
+  loggingmanager.registerlLogTailer(logtailmock);
+  return logtailmock;
+};
+
+var createLoggingServiceMock = function(loggingmanager) {
+  var logginservice = new LoggingServiceMock();
+  loggingmanager.registerService(logginservice);
+  return logginservice;
+};
+
 suite('logging service manager', function() {
 
   test('1 service , 1 logger', function(done) {
@@ -121,29 +134,17 @@ suite('logging service manager', function() {
 
 });
 
-var createLogtailMock = function(loggingmanager, type) {
-  var logtailmock = new LogTailerMock();
-  logtailmock.type = type;
-  loggingmanager.registerlLogTailer(logtailmock);
-  return logtailmock;
+
+function LogTailerMock() {
+
 }
-
-var createLoggingServiceMock = function(loggingmanager) {
-  var logginservice = new LoggingServiceMock();
-  loggingmanager.registerService(logginservice);
-  return logginservice;
-}
-
-
-  function LogTailerMock() {}
 
 util.inherits(LogTailerMock, EventEmitter);
 
 LogTailerMock.prototype.writeLog = function(line) {
   this.emit("line", line);
-}
+};
 
 function LoggingServiceMock() {
 
 }
-util.inherits(LoggingServiceMock, EventEmitter);
