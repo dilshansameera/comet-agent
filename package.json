@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "tail": "0.3.x",
-    "mkdirp":"0.3.x"
+    "mkdirp":"0.3.x",
+    "winston":""
   },
   "devDependencies": {
     "mocha": "0.3.x"
