@@ -7,7 +7,10 @@
   "dependencies": {
     "tail": "0.3.x",
     "mkdirp":"0.3.x",
-    "winston":""
+    "winston":"0.7.x",
+    "winston-papertrail":"0.1.x",
+    "winston-splunkstorm":"0.1.x",
+    "librato-metrics":"0.0.7"
   },
   "devDependencies": {
     "mocha": "0.3.x"
