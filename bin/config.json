@@ -1,0 +1,35 @@
+{
+    "logs": {
+        "logFiles": {
+            "haproxy": "/tmp/log/haproxy.log",
+            "app": "/tmp/log/app.log"
+        },
+        "services": {
+            "papertrail": {
+                "host": "logs.papertrailapp.com",
+                "port": 48138
+            },
+            "splunkstorm": {
+                "apiKey": "kdt3HzL7URFbmydEV52KTAa7E04tVRFgZoNmqAw0KzTymXoHtI8d5LivvNXEbdRuVTckN9E3waQ=",
+                "projectId": "50fb743c421811e385e322000a9e07fe"
+            },
+            "comet": {
+                "token": "678sdbsds9dsds"
+            }
+        },
+        "watchFileInterval": 1000
+    },
+    "metrics": {
+        "providers": {
+            "system": {
+                "interval": 2000
+            }
+        },
+        "services": {
+            "librato": {
+                "email": "pahan123@gmail.com",
+                "token": "502b12f9fddceb80745590350fe6e60b2ccec40674b1570a8a1d93f0f50b566c"
+            }
+        }
+    }
+}

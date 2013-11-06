@@ -1,5 +1,5 @@
 {
-  "name": "log-tailer",
+  "name": "comet-agent",
   "version": "0.1.0",
   "scripts": {
     "test": "node_modules/.bin/mocha -u tdd -R spec -t 15000"
