@@ -24,7 +24,7 @@ comet-agent ./config.json
         "services": {
             "papertrail": {
                 "host": "logs.papertrailapp.com",
-                "port": PAPERTAIL_PORT
+                "port": PAPERTRAIL_PORT
             },
             "splunkstorm": {
                 "apiKey": "YOUR_SPLUNKSTORM_API_KEY",
